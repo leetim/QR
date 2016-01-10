@@ -60,14 +60,7 @@ for k in (0...n)
 end
 x = Array.new(n)
 x[n - 1] = f[n - 1] / a[n - 1][n - 1]
-a.each{ |i|
-	p i
-}
-p f
-p ""
 Array.new(n - 1){|i| i + 1}.reverse.each do |i|
-	p i
-	p Array.new(n - i){|j| a[i][i + j] * x[i + j]}
 	x[i - 1] = (f[i] - Array.new(n - i - 1){|j| a[i][j + i + 1] * x[i + j + 1]}.sum) / a[i][i]
 end
 p x
